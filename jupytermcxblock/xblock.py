@@ -41,7 +41,7 @@ class JupyterMCXBlock(LtiConsumerXBlock):
             {"display_name": "Jupyter Notebook", "value": "tree"},
             {"display_name": "JupyterLab", "value": "lab/tree"},
             {"display_name": "RStudio", "value": "rstudio"},
-            {"display_name": "Terminal", "value": "terminals"}
+            {"display_name": "Terminal", "value": "terminals/1"}
         ],
         default="lab/tree",
         help=_(
@@ -109,6 +109,14 @@ class JupyterMCXBlock(LtiConsumerXBlock):
         return f"{self.hub_url}/hub/lti/launch"
 
     @property
+    def launch_target(self):
+        """If RStudio is used, launch target must be new window"""
+        if self.urlbasepath == "rstudio":
+            return "new_window"
+        else:
+            return self.launch_target
+
+    @property
     def lti_version(self):
         """Always use LTI 1.1"""
         return "lti_1p1"
@@ -129,6 +137,11 @@ class JupyterMCXBlock(LtiConsumerXBlock):
             "branch": self.nb_git_branch,
             "urlpath": f"{self.urlbasepath}/{os.path.basename(self.nb_git_repo)}/{self.nb_git_file}",
         }
+
+        # in the case of terminals or rstudio, we can't open to a specific location, the notebook to open is irrelevant
+        if self.urlbasepath in ["terminals/1", "rstudio"]:
+            next_query_params['urlpath'] = f"{self.urlbasepath}"
+
         logger.info(
             "Fetching git repo=%s, branch=%s, urlpath=%s",
             next_query_params["repo"],
