@@ -42,6 +42,9 @@ class JupyterMCXBlock(LtiConsumerXBlock):
             {"display_name": "JupyterLab", "value": "lab/tree"},
             {"display_name": "RStudio", "value": "rstudio"},
             {"display_name": "Terminal", "value": "terminals/1"}
+            {"display_name": "Desktop", "value": "Desktop"}
+            {"display_name": "OpenRefine", "value": "openrefine"}
+            {"display_name": "VS Code", "value": "code-server"}
         ],
         default="lab/tree",
         help=_(
@@ -111,7 +114,7 @@ class JupyterMCXBlock(LtiConsumerXBlock):
     @property
     def launch_target(self):
         """If RStudio is used, launch target must be new window"""
-        if self.urlbasepath == "rstudio":
+        if self.urlbasepath in ["rstudio", "openrefine", "Desktop", "code-server"]:
             return "new_window"
         else:
             return super().launch_target
@@ -138,8 +141,8 @@ class JupyterMCXBlock(LtiConsumerXBlock):
             "urlpath": f"{self.urlbasepath}/{os.path.basename(self.nb_git_repo)}/{self.nb_git_file}",
         }
 
-        # in the case of terminals or rstudio, we can't open to a specific location, the notebook to open is irrelevant
-        if self.urlbasepath in ["terminals/1", "rstudio"]:
+        # in the case of terminals, rstudio, openrefine, Desktop, code-server, we can't open to a specific location, the notebook to open is irrelevant
+        if self.urlbasepath in ["terminals/1", "rstudio", "openrefine", "Desktop", "code-server"]:
             next_query_params['urlpath'] = f"{self.urlbasepath}"
 
         logger.info(
