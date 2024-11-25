@@ -14,7 +14,6 @@ Here is a screenshot of the Jupyter XBlock in action:
 
 ## Usage
 
-To use this xblock with [Tutor](https://docs.tutor.overhang.io/), use [Tutor-jupyter](https://github.com/overhangio/tutor-jupyter) plugin as this will automatically be installed with it. 
 In your course "Advanced Settings", add "jupyter" to the "Advanced Module List":
 
 ![Studio advanced module list](https://raw.githubusercontent.com/overhangio/jupyter-xblock/main/static/screenshots/studio-advanced-settings.png)
@@ -59,7 +58,7 @@ You will have to launch your own JupyterHub cluster separately from Open edX. Yo
 
 ## Troubleshooting
 
-This XBlock was kickstarted by Matthew Brett ([@matthew-brett](https://github.com/matthew-brett)) and funded by a grant from the [Chan Zuckerberg Initiative](https://chanzuckerberg.com/). This project is maintained by Muhammad Hassan Siddiqi from [Edly](https://edly.io). Community support is available from the official [Open edX forum](https://discuss.openedx.org).
+This XBlock was created by Maxime Boissonneault ([@mboisson](https://github.com/mboisson)) based on the `jupyter-xblock` xblock written by by Matthew Brett ([@matthew-brett](https://github.com/matthew-brett)).
 
 ## License
 
