@@ -4,8 +4,18 @@ import urllib.parse
 
 from django.conf import settings
 from lti_consumer.lti_xblock import LtiConsumerXBlock, LtiError, _
+from webob import Response
 from xblock.core import Scope, String, XBlock
 from xblockutils.resources import ResourceLoader
+try:
+    from xblock.utils.resources import ResourceLoader
+except ModuleNotFoundError:  # For backward compatibility with releases older than Quince.
+    from xblockutils.resources import ResourceLoader
+LTI_1P1_ROLE_MAP = {
+    'student': 'Student,Learner',
+    'staff': 'Administrator',
+    'instructor': 'Instructor',
+}
 
 
 logger = logging.getLogger(__name__)
