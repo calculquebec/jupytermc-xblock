@@ -20,7 +20,7 @@ class JupyterMCXBlock(LtiConsumerXBlock):
             "Analytics reports may also use the display name to identify this component."
         ),
         scope=Scope.settings,
-        default=_("Jupyter notebook"),
+        default=_("JupyterHub"),
     )
 
     # which interface to open
