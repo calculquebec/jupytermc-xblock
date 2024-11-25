@@ -1,6 +1,6 @@
 # Jupyter XBlock
 
-This is an [XBlock](https://edx.readthedocs.io/projects/xblock-tutorial/en/latest/overview/introduction.html) to integrate JupyterHub from a [Magic Castle](https://github.com/computecanada/magic-castle) cluster to your [Open edX](https://openedx.org) learning management system (LMS).
+This is an [XBlock](https://edx.readthedocs.io/projects/xblock-tutorial/en/latest/overview/introduction.html) to integrate JupyterHub from a [Magic Castle](https://github.com/computecanada/magic_castle) cluster to your [Open edX](https://openedx.org) learning management system (LMS).
 
 Features:
 
