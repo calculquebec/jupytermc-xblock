@@ -114,7 +114,7 @@ class JupyterMCXBlock(LtiConsumerXBlock):
         if self.urlbasepath == "rstudio":
             return "new_window"
         else:
-            return self.launch_target
+            return super().launch_target
 
     @property
     def lti_version(self):
