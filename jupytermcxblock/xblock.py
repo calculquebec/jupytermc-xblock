@@ -23,6 +23,22 @@ class JupyterMCXBlock(LtiConsumerXBlock):
         default=_("Jupyter notebook"),
     )
 
+    # which interface to open
+    urlbasepath = String(
+        display_name=_("Interface to use"),
+        scope=Scope.settings,
+        values=[
+            {"display_name": "Jupyter Notebook", "value": "tree"},
+            {"display_name": "JupyterLab", "value": "lab/tree"},
+            {"display_name": "RStudio", "value": "rstudio"},
+            {"display_name": "Terminal", "value": "terminals"}
+        ],
+        default="lab/tree",
+        help=_(
+            "Select the interface that the notebook should open."
+        ),
+    )
+
     # Jupyter git repo attributes
     nb_git_repo = String(
         display_name=_("Notebook git repository"),
@@ -67,6 +83,7 @@ class JupyterMCXBlock(LtiConsumerXBlock):
     # Limit the number of editable fields
     editable_field_names = (
         "display_name",
+        "urlbasepath",
         "launch_target",
         "hub_url",
         "lti_id",
@@ -100,7 +117,7 @@ class JupyterMCXBlock(LtiConsumerXBlock):
         next_query_params = {
             "repo": self.nb_git_repo,
             "branch": self.nb_git_branch,
-            "urlpath": f"lab/tree/{os.path.basename(self.nb_git_repo)}/{self.nb_git_file}",
+            "urlpath": f"{self.urlbasepath}/{os.path.basename(self.nb_git_repo)}/{self.nb_git_file}",
         }
         logger.info(
             "Fetching git repo=%s, branch=%s, urlpath=%s",
