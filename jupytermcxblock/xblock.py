@@ -3,7 +3,7 @@ import os
 import urllib.parse
 
 from django.conf import settings
-from lti_consumer.lti_xblock import LtiConsumerXBlock, _
+from lti_consumer.lti_xblock import LtiConsumerXBlock, LtiError, _
 from xblock.core import Scope, String, XBlock
 from xblockutils.resources import ResourceLoader
 
