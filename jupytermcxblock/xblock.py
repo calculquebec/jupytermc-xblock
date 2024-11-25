@@ -11,7 +11,7 @@ from xblockutils.resources import ResourceLoader
 logger = logging.getLogger(__name__)
 
 
-class JupyterXBlock(LtiConsumerXBlock):
+class JupyterMCXBlock(LtiConsumerXBlock):
     # Advanced component name
     display_name = String(
         display_name=_("Display Name"),
@@ -26,8 +26,8 @@ class JupyterXBlock(LtiConsumerXBlock):
     # Jupyter git repo attributes
     nb_git_repo = String(
         display_name=_("Notebook git repository"),
-        help="For example: https://github.com/overhangio/jupyter-xblock.git",
-        default="https://github.com/overhangio/jupyter-xblock.git",
+        help="For example: https://github.com/calculquebec/jupytermc-xblock.git",
+        default="https://github.com/calculquebec/jupytermc-xblock.git",
         scope=Scope.settings,
     )
     nb_git_branch = String(

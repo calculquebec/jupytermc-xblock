@@ -10,13 +10,13 @@ Features:
 
 Here is a screenshot of the Jupyter XBlock in action:
 
-![](https://raw.githubusercontent.com/overhangio/jupyter-xblock/main/static/screenshots/lms.png)
+![](https://raw.githubusercontent.com/calculquebec/jupytermc-xblock/main/static/screenshots/lms.png)
 
 ## Usage
 
 In your course "Advanced Settings", add "jupyter" to the "Advanced Module List":
 
-![Studio advanced module list](https://raw.githubusercontent.com/overhangio/jupyter-xblock/main/static/screenshots/studio-advanced-settings.png)
+![Studio advanced module list](https://raw.githubusercontent.com/calculquebec/jupytermc-xblock/main/static/screenshots/studio-advanced-settings.png)
 
 ## Configuration
 
@@ -40,7 +40,7 @@ To define a global LTI passport ID to be used by all Jupyter XBlock instances, a
 
 Then, the corresponding passport must be created in the course advanced settings, as described in the [Open edX documentation](https://edx.readthedocs.io/projects/open-edx-building-and-running-a-course/en/latest/exercises_tools/lti_component.html#creating-an-lti-passport-string):
 
-![Studio advanced LTI settings](https://raw.githubusercontent.com/overhangio/jupyter-xblock/main/static/screenshots/studio-advanced-settings-lti.png)
+![Studio advanced LTI settings](https://raw.githubusercontent.com/calculquebec/jupytermc-xblock/main/static/screenshots/studio-advanced-settings-lti.png)
 
 ## Configuring JupyterHub
 
@@ -62,4 +62,4 @@ This XBlock was created by Maxime Boissonneault ([@mboisson](https://github.com/
 
 ## License
 
-This work is licensed under the terms of the [GNU Affero General Public License (AGPL)](https://github.com/overhangio/jupyter-xblock/blob/master/LICENSE.txt).
+This work is licensed under the terms of the [GNU Affero General Public License (AGPL)](https://github.com/calculquebec/jupytermc-xblock/blob/master/LICENSE.txt).

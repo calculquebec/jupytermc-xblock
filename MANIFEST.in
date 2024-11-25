@@ -1,1 +1,1 @@
-recursive-include jupyterxblock/static *
+recursive-include jupytermcxblock/static *

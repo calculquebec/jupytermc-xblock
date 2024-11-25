@@ -8,9 +8,9 @@ with io.open(os.path.join(here, "README.md"), "rt", encoding="utf8") as f:
     readme = f.read()
 
 setup(
-    name="jupyter-xblock",
-    version="17.0.0",
-    description="Jupyter XBlock for Open edX",
+    name="jupytermc-xblock",
+    version="1.0.0",
+    description="Jupyter Magic Castle XBlock for Open edX",
     long_description=readme,
     long_description_content_type="text/markdown",
     author="Overhang.IO",
@@ -18,16 +18,15 @@ setup(
     maintainer="Edly",
     maintainer_email="mhassan.eeng@gmail.com",
     project_urls={
-        "Documentation": "https://github.com/overhangio/jupyter-xblock",
-        "Code": "https://github.com/overhangio/jupyter-xblock",
-        "Issue tracker": "https://github.com/overhangio/jupyter-xblock/issues",
-        "Community": "https://discuss.openedx.com",
+        "Documentation": "https://github.com/calculquebec/jupytermc-xblock",
+        "Code": "https://github.com/calculquebec/jupytermc-xblock",
+        "Issue tracker": "https://github.com/calculquebec/jupytermc-xblock/issues",
     },
-    packages=["jupyterxblock"],
+    packages=["jupytermcxblock"],
     include_package_data=True,
     python_requires=">=3.8",
     install_requires=["xblock", "web-fragments"],
-    entry_points={"xblock.v1": ["jupyter = jupyterxblock.xblock:JupyterXBlock"]},
+    entry_points={"xblock.v1": ["jupyter = jupytermcxblock.xblock:JupyterMCXBlock"]},
     license="AGPLv3",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
