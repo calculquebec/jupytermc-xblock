@@ -1,1 +1,2 @@
 recursive-include jupytermcxblock/static *
+recursive-include jupytermcxblock/templates *
