@@ -26,7 +26,7 @@ setup(
     include_package_data=True,
     python_requires=">=3.8",
     install_requires=["xblock", "web-fragments"],
-    entry_points={"xblock.v1": ["jupyter = jupytermcxblock.xblock:JupyterMCXBlock"]},
+    entry_points={"xblock.v1": ["jupytermc = jupytermcxblock.xblock:JupyterMCXBlock"]},
     license="AGPLv3",
     classifiers=[
         "Development Status :: 5 - Production/Stable",
