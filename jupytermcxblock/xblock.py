@@ -41,9 +41,9 @@ class JupyterMCXBlock(LtiConsumerXBlock):
             {"display_name": "Jupyter Notebook", "value": "tree"},
             {"display_name": "JupyterLab", "value": "lab/tree"},
             {"display_name": "RStudio", "value": "rstudio"},
-            {"display_name": "Terminal", "value": "terminals/1"}
-            {"display_name": "Desktop", "value": "Desktop"}
-            {"display_name": "OpenRefine", "value": "openrefine"}
+            {"display_name": "Terminal", "value": "terminals/1"},
+            {"display_name": "Desktop", "value": "Desktop"},
+            {"display_name": "OpenRefine", "value": "openrefine"},
             {"display_name": "VS Code", "value": "code-server"}
         ],
         default="lab/tree",
