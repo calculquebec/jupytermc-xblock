@@ -40,11 +40,11 @@ class JupyterMCXBlock(LtiConsumerXBlock):
         values=[
             {"display_name": "Jupyter Notebook", "value": "tree"},
             {"display_name": "JupyterLab", "value": "lab/tree"},
-            {"display_name": "RStudio", "value": "rstudio"},
             {"display_name": "Terminal", "value": "terminals/1"},
-            {"display_name": "Desktop", "value": "Desktop"},
-            {"display_name": "OpenRefine", "value": "openrefine"},
-            {"display_name": "VS Code", "value": "code-server"}
+            {"display_name": "RStudio (new window only)", "value": "rstudio"},
+            {"display_name": "Desktop (new window only)", "value": "Desktop"},
+            {"display_name": "OpenRefine (new window only)", "value": "openrefine"},
+            {"display_name": "VS Code (new window only)", "value": "code-server"}
         ],
         default="lab/tree",
         help=_(
@@ -110,14 +110,6 @@ class JupyterMCXBlock(LtiConsumerXBlock):
     def launch_url(self):
         """Infer launch URL from JupyterHub URL"""
         return f"{self.hub_url}/hub/lti/launch"
-
-    @property
-    def launch_target(self):
-        """If RStudio is used, launch target must be new window"""
-        if self.urlbasepath in ["rstudio", "openrefine", "Desktop", "code-server"]:
-            return "new_window"
-        else:
-            return super().launch_target
 
     @property
     def lti_version(self):
