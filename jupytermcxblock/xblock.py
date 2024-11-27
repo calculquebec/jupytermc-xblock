@@ -154,7 +154,7 @@ class JupyterMCXBlock(LtiConsumerXBlock):
         if self.nb_git_repo and self.pull_repo:
             next_url = f"{self.hub_url_base_path}/hub/user-redirect/git-pull?{urllib.parse.urlencode(next_query_params)}"
         elif self.nb_git_file:
-            next_url = f"{self.hub_url_base_path}/hub/user-redirect/{self.urlbasepath}/{self.nb_git_file}"
+            next_url = f"{self.hub_url_base_path}/hub/user-redirect/{next_query_params['urlpath']}"
         else:
             next_url = f"{self.hub_url_base_path}/hub/user-redirect/{self.urlbasepath}"
 
