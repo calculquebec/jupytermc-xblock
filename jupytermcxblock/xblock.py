@@ -64,6 +64,12 @@ class JupyterMCXBlock(LtiConsumerXBlock):
         default="main",
         scope=Scope.settings,
     )
+    pull_repo = Boolean(
+        display_name=_("Pull repository ?"),
+        help=_("Defines whether the repository is pulled automatically or not."),
+        default=True,
+        scope=Scope.settings
+    )
     nb_git_file = String(
         display_name=_("Notebook file"),
         help="Path relative to the repository root",
@@ -103,6 +109,7 @@ class JupyterMCXBlock(LtiConsumerXBlock):
         "nb_git_repo",
         "nb_git_branch",
         "nb_git_file",
+        "pull_repo",
     )
 
     # Override base attributes
@@ -143,8 +150,10 @@ class JupyterMCXBlock(LtiConsumerXBlock):
             next_query_params["branch"],
             next_query_params["urlpath"],
         )
-        if self.nb_git_repo:
+        if self.nb_git_repo and self.pull_repo:
             next_url = f"{self.hub_url_base_path}/hub/user-redirect/git-pull?{urllib.parse.urlencode(next_query_params)}"
+        elif self.nb_git_file:
+            next_url = f"{self.hub_url_base_path}/hub/user-redirect/{self.urlbasepath}/{self.nb_git_file}"
         else:
             next_url = f"{self.hub_url_base_path}/hub/user-redirect/{self.urlbasepath}"
 
