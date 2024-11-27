@@ -5,7 +5,7 @@ import urllib.parse
 from django.conf import settings
 from lti_consumer.lti_xblock import LtiConsumerXBlock, LtiError, track_event, _
 from webob import Response
-from xblock.core import Scope, String, XBlock
+from xblock.core import Scope, String, XBlock, Boolean
 from xblockutils.resources import ResourceLoader
 try:
     from xblock.utils.resources import ResourceLoader
