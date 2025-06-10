@@ -160,11 +160,13 @@ class JupyterMCXBlock(LtiConsumerXBlock):
         if self.urlbasepath in ["terminals/1", "rstudio", "openrefine", "Desktop", "code-server"]:
             next_query_params['urlpath'] = f"{self.urlbasepath}"
 
+        extra_params = ast.literal_eval(self.extra_params)
         logger.info(
-            "Fetching git repo=%s, branch=%s, urlpath=%s",
+            "Fetching git repo=%s, branch=%s, urlpath=%s, extra_params=%s",
             next_query_params["repo"],
             next_query_params["branch"],
             next_query_params["urlpath"],
+            str(extra_params)
         )
         if self.next_url:
             next_url = self.next_url
@@ -177,9 +179,16 @@ class JupyterMCXBlock(LtiConsumerXBlock):
 
         custom_parameters["next"] = next_url
 
-        extra_params = ast.literal_eval(self.extra_params)
+        logger.info(
+            "custom_parameters before=%s",
+            str(custom_parameters)
+        )
         if extra_params:
             custom_parameters.update(extra_params)
+        logger.info(
+            "custom_parameters after=%s",
+            str(custom_parameters)
+        )
 
         return custom_parameters
 
