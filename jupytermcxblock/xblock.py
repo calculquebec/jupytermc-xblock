@@ -1,6 +1,7 @@
 import logging
 import os
 import urllib.parse
+import ast
 
 from django.conf import settings
 from lti_consumer.lti_xblock import LtiConsumerXBlock, LtiError, track_event, _
@@ -77,6 +78,12 @@ class JupyterMCXBlock(LtiConsumerXBlock):
         default="static/notebooks/hello.ipynb",
         scope=Scope.settings,
     )
+    extra_params = String(
+        display_name=_("Extra parameters"),
+        help="Extra parameters to pass to the launch url",
+        default="{}",
+        scope=Scope.settings,
+    )
 
     # LTI attributes
     lti_id = String(
@@ -97,6 +104,12 @@ class JupyterMCXBlock(LtiConsumerXBlock):
             "LTI_DEFAULT_JUPYTER_HUB_URL",
             f"https://hub.{settings.LMS_BASE}",
         ),
+        scope=Scope.settings,
+    )
+    next_url = String(
+        display_name=_("Next URL after authentication"),
+        help="""users/{name}/server""",
+        default="",
         scope=Scope.settings,
     )
 
@@ -151,7 +164,9 @@ class JupyterMCXBlock(LtiConsumerXBlock):
             next_query_params["branch"],
             next_query_params["urlpath"],
         )
-        if self.nb_git_repo and self.pull_repo:
+        if self.next_url:
+            next_url = self.next_url
+        elif self.nb_git_repo and self.pull_repo:
             next_url = f"{self.hub_url_base_path}/hub/user-redirect/git-pull?{urllib.parse.urlencode(next_query_params)}"
         elif self.nb_git_file:
             next_url = f"{self.hub_url_base_path}/hub/user-redirect/{next_query_params['urlpath']}"
@@ -159,6 +174,10 @@ class JupyterMCXBlock(LtiConsumerXBlock):
             next_url = f"{self.hub_url_base_path}/hub/user-redirect/{self.urlbasepath}"
 
         custom_parameters["next"] = next_url
+
+        extra_params = ast.literal_eval(self.extra_params)
+        if extra_params:
+            custom_parameters.update(extra_params)
 
         return custom_parameters
 
