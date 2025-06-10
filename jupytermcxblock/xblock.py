@@ -124,6 +124,8 @@ class JupyterMCXBlock(LtiConsumerXBlock):
         "nb_git_branch",
         "nb_git_file",
         "pull_repo",
+        "next_url",
+        "extra_params",
     )
 
     # Override base attributes
