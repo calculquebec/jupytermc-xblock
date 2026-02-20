@@ -118,6 +118,8 @@ class JupyterMCXBlock(LtiConsumerXBlock):
         "display_name",
         "urlbasepath",
         "launch_target",
+        "button_text",
+        "inline_height",
         "hub_url",
         "lti_id",
         "nb_git_repo",
