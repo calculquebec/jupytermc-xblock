@@ -164,7 +164,7 @@ class JupyterMCXBlock(LtiConsumerXBlock):
         }
 
         # in the case of terminals, rstudio, openrefine, Desktop, code-server, we can't open to a specific location, the notebook to open is irrelevant
-        if self.urlbasepath in ["terminals/1", "rstudio", "openrefine", "Desktop", "code-server"]:
+        if self.urlbasepath in ["terminals/1", "rstudio", "openrefine", "Desktop", "code-server", "libreqda", "mate", "xfce4", "paraview", "mlflow", "tensorboard" ]:
             next_query_params['urlpath'] = f"{self.urlbasepath}"
 
         extra_params = ast.literal_eval(self.extra_params)
