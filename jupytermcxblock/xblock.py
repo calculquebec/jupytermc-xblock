@@ -45,13 +45,13 @@ class JupyterMCXBlock(LtiConsumerXBlock):
             {"display_name": "Terminal", "value": "terminals/1"},
             {"display_name": "RStudio (new window only)", "value": "rstudio"},
             {"display_name": "OpenRefine (new window only)", "value": "openrefine"},
-            {"display_name": "VS Code", "value": "code-server"}
-            {"display_name": "LibreQDA", "value": "libreqda"}
-            {"display_name": "Mate Desktop", "value": "mate"}
+            {"display_name": "VS Code", "value": "code-server"},
+            {"display_name": "LibreQDA", "value": "libreqda"},
+            {"display_name": "Mate Desktop", "value": "mate"},
             {"display_name": "XFCE4 Desktop", "value": "xfce4"},
             {"display_name": "ParaView", "value": "paraview"},
-            {"display_name": "MLFlow", "value": "mlflow"}
-            {"display_name": "Tensorboard", "value": "tensorboard"}
+            {"display_name": "MLFlow", "value": "mlflow"},
+            {"display_name": "Tensorboard", "value": "tensorboard"},
         ],
         default="lab/tree",
         help=_(
